@@ -1,0 +1,76 @@
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+<title>List Employees</title>
+
+<link rel="stylesheet" type="text/css"
+	href="https://cdn.datatables.net/v/bs4/dt-1.10.25/datatables.min.css" />
+<link rel="stylesheet"
+	href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
+	integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l"
+	crossorigin="anonymous" />
+</head>
+
+<body style="background-color : #e7eed0 ">
+
+	<div class="container">
+
+		<h3>Students List</h3>
+
+		<hr />
+		<a th:href="@{/index}" class="btn btn-primary">Book Slot</a> <br /> <br />
+		<table class="table table-bordered table-striped"
+			id="studentSlotsTable">
+
+			<thead>
+				<tr>
+					<th>Student Id</th>
+					<th>First Name</th>
+					<th>Last Name</th>
+					<th>Email</th>
+					<th>Phone No</th>
+					<th>Project Title</th>
+					<th>Slot Date</th>
+					<th>Slot Start Time</th>
+					<th>Slot End Time</th>
+<!-- 					<th>Action</th>
+ -->				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="studentsDetails: ${studentsDetails}">
+					<td th:text="${studentsDetails.student.id}" />
+					<td th:text="${studentsDetails.student.firstName}" />
+					<td th:text="${studentsDetails.student.lastName}" />
+					<td th:text="${studentsDetails.student.email}" />
+					<td th:text="${studentsDetails.student.phoneNumber}" />
+					<td th:text="${studentsDetails.student.projectTitle}" />
+					<td th:text="${studentsDetails.slot.date}" />
+					<td th:text="${studentsDetails.slot.startTime}" />
+					<td th:text="${studentsDetails.slot.endTime}" />
+					<!-- <td><a th:href="@{/showUpdateForm(registrationId=${studentsDetails.id})}"
+						class="btn btn-info">Update</a></td> -->
+				</tr>
+			</tbody>
+
+		</table>
+	</div>
+
+	<script
+		src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<script type="text/javascript"
+		src="https://cdn.datatables.net/v/bs4/dt-1.10.25/datatables.min.js"></script>
+	<script>
+		$(document).ready(function() {
+			alert($studentsDetails);
+			$("#studentSlotsTable").DataTable({
+				'aoColumnDefs' : [ {
+					'bSortable' : false,
+					'aTargets' : [ -1 ]
+				/* 1st one, start by the right */
+				} ]
+			});
+		})
+	</script>
+</body>
+
+</html>

@@ -1,0 +1,12 @@
+body{
+background-color: #e7eed0;
+}
+.infoContainer{
+    display: flex;
+}
+.info{
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: column;
+    width: 50%;
+}

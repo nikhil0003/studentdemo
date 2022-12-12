@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Register</title>
+    <link rel="stylesheet" type="text/css" href="registration.css">
+    <script src="registration.js" defer></script>
+</head>
+<body>
+<div class="signupSection">
+
+    <div class="formContainer">
+        <form class="form" id="registrationForm" th:action = "@{/registrationSubmit}" th:object = "${data}" method = "POST">
+            <div>
+                    <input type="hidden" th:field="*{slotId}" required>
+                <div class="input">
+                    <input type="text" class="inputField" placeholder="ID" name="id" th:field="*{id}" required>
+                </div>
+                <div class="input">
+                    <input type="text" class="inputField" placeholder="First Name" name="firstName" th:field="*{firstName}" required>
+                </div>
+                <div class="input">
+                    <input type="text" class="inputField" placeholder="Last Name" name="lastName" th:field="*{lastName}" required>
+                </div>
+                 <div class="input">
+                    <input type="text" class="inputField" placeholder="Phone Number" name="phoneNumber" th:field="*{phoneNumber}" required>
+                </div>
+                <div class="input">
+                    <input type="text" class="inputField" placeholder="Email" name="email" th:field="*{email}" required>
+                </div>
+               
+                <div class="input">
+                    <input type="text" class="inputField" placeholder="Project Title" name="projectTitle" th:field="*{projectTitle}" required>
+                </div>
+                <div>
+                    <input type="submit" class="registrationButton" id="registrationButton" value="Book Slot">
+                </div>
+                <div class="line"></div>
+            </div>
+        </form>
+        <div>
+            <button class="backButton" id="backButton">Go Back</button>
+        </div>
+        <h3 id="error" class="error"></h3>
+    </div>
+</div>
+
+
+
+</body>
+</html>

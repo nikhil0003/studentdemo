@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Welcome</title>
+<link rel="stylesheet" type="text/css" href="index.css">
+<script src="index.js" defer></script>
+</head>
+<body>
+
+	<h1>Book the Slot below</h1>
+	
+	<br>
+	<a th:href="@{/list}" class="btn btn-primary">Get All Booking Details</a>
+
+	<div th:each="slot: ${slots}">
+		<button type="button" class="collapsible">
+			Slot #<span th:text="${slot.id}"></span>
+		</button>
+		<div class="content">
+			<div class="info">
+				<h3>
+					Date: <span th:text="${slot.date}"></span>
+				</h3>
+				<br>
+				<h3>
+					Time: <span th:text="${slot.startTime}"></span> - <span
+						th:text="${slot.endTime}"></span>
+				</h3>
+				<h3>
+					Total Seats: <span th:text="${slot.totalSeats}"></span>
+				</h3>
+				<br>
+				<h3>
+					Available Seats: <span th:text="${slot.availableSeats}"></span>
+				</h3>
+			</div>
+			<div class="infoDown">
+				<form th:action="@{/registration}" th:object="${post}" method="POST">
+					<input type="hidden" th:value="${slot.id}" id="slotId"
+						name="slot_id">
+					<button type="submit">Book Slot</button>
+					<br>
+				</form>
+			</div>
+		</div>
+	</div>
+	
+</body>
+</html>

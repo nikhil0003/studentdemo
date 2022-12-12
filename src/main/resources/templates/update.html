@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" type="text/css" href="update.css">
+    <script src="update.js" defer></script>
+</head>
+<body>
+<h1>You are already registered</h1>
+<h1>Your existing slot info is as follow</h1>
+<div class="infoContainer">
+    <div class="info">
+        <h1>Existing slot</h1>
+        <h1>Date - <span th:text = "${existingSlot.date}"></span></h1>
+        <h1>Time - <span th:text = "${existingSlot.startTime}"></span> to <span th:text = "${existingSlot.endTime}"></span></h1>
+
+    </div>
+    <div class="info">
+        <h1>New slot</h1>
+        <h1>Date - <span th:text = "${newSlot.date}"></span></h1>
+        <h1>Time - <span th:text = "${newSlot.startTime}"></span> to <span th:text = "${newSlot.endTime}"></span></h1>
+    </div>
+
+</div>
+<form th:action = "@{/update}"
+      th:object = "${post}" method = "POST">
+    <input type="hidden" th:value="${student.id}" id="studentId" name="studentId">
+    <input type="hidden" th:value="${newSlot.id}" id="slotId" name="slotId">
+    <input type="submit" class="registrationButton" id="registrationButton" value="Click here to Update">
+</form>
+<button id="back">Go to Home</button>
+</body>
+</html>

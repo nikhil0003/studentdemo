@@ -1,0 +1,46 @@
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+<title>Update Booking</title>
+<link rel="stylesheet" type="text/css" href="update.css">
+<link rel="stylesheet"
+	href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
+	integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l"
+	crossorigin="anonymous" />
+</head>
+<body>
+
+	<div class="container">
+		<form th:action="@{/saveEmployee}" th:object="${registrationDetails}"
+			method="POST">
+			<div class="info">
+				<h3>You are already registered</h3>
+				<h3>Your existing slot info is as follow</h3>
+				<hr />
+				<h3>Existing slot</h3>
+				<h3>
+					Date - <span th:text="${registrationDetails.slot.date}"></span>
+				</h3>
+				<h3>
+					Time - <span th:text="${registrationDetails.slot.startTime}"></span>
+					to <span th:text="${registrationDetails.slot.endTime}"></span>
+				</h3>
+				<a th:href="@{/index}" class="btn btn-info">Get Available Slots</a> <br>
+			</div>
+			<!-- <input type="text" th:field="*{name}" class="form-control col-4 mb-4"
+				placeholder="Enter Name" /> <input type="text" th:field="*{email}"
+				class="form-control col-4 mb-4" placeholder="Enter email" /> <input
+				type="text" th:field="*{department}" class="form-control col-4 mb-4"
+				placeholder="Enter department" /> -->
+
+			<button type="submit" class="btn btn-primary col-2">Change
+				Booking</button>
+			<!-- 	<input type="hidden" th:field="*{id}" /> -->
+
+		</form>
+		<hr />
+		<a th:href="@{/list}">Back to list</a>
+	</div>
+
+</body>
+</html>

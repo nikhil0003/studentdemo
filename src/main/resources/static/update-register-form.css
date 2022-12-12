@@ -1,0 +1,10 @@
+
+body{
+background-color: #e7eed0;
+}
+.info{
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: column;
+    width: 50%;
+}
